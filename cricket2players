@@ -1,0 +1,109 @@
+import random
+import getpass
+def game(h,g):
+ while h==1:
+  if g==1:
+      f=0 
+  batselec=getpass.getpass(prompt="batsman select(0 to 6) :")
+  e=int(batselec)
+  bowselec=int(input("bowler select(1 to 6) : "))
+
+  if e==bowselec:
+    print("OUT")
+    h+=1
+    return f
+  else:
+    
+    f=f+e
+    print("score :",f)
+    g+=1
+def game1(h,g,i):
+ while h==1:
+  if g==1:
+      f=0 
+  batselec=getpass.getpass(prompt="batsman select(0 to 6) :")
+  e=int(batselec)
+  bowselec=int(input("bowler select(1 to 6) : "))
+
+  if e==bowselec:
+    print("OUT")
+    h+=1
+    return f
+  else:
+    
+    f=f+e
+    print("score :",f)
+    if f>i:
+      h+=1
+      return f
+    g+=1    
+
+a=input("enter player 1 name :")
+b=input("enter player 2 name :")
+print ("----->",a,"<-----" ,".VS.", "----->",b,"<-----")
+print(b,"press 1 for HEADS or 2 for TAILS")
+cointoss=int(input())
+d=random.randint(1,2)
+if cointoss==d:
+  print(b,"press 1 for BATTING or 2 for BOWLING")
+  p2c=int(input())
+  if p2c==1:
+    i=game(1,1)
+    
+    print("score of",b," :" ,i)
+    print(a,"GOOD LUCK for your batting")
+    
+    j=game1(1,1,i)
+    
+    print("score of",a," :" ,j)
+    if i>j:
+      print("*****",b,"*****  WON THE MATCH")
+    elif j>i: 
+      print("*****",a,"*****  WON THE MATCH") 
+    elif i==j:
+      print("....same IQ = same SCORE =MATCH DRAW....")  
+  else:
+    
+    i=game(1,1)
+    print("score of",a," :" ,i)
+    print(b,"GOOD LUCK for your batting")
+  
+    j=game1(1,1,i)
+    print("score of",b," :" ,j)
+    if i>j:
+      print("*****",a,"*****  WON THE MATCH")
+    elif j>i: 
+      print("*****",b,"*****  WON THE MATCH") 
+    elif i==j:
+      print("....same IQ = same SCORE =MATCH DRAW....") 
+else:
+  print(a,"press 1 for BATTING or 2 for BOWLING")  
+  p1c=int(input())
+  if p1c==1:
+    
+    i=game(1,1)
+    print("score of",a," :" ,i)
+    print(b,"GOOD LUCK for your batting")
+    j=game1(1,1,i)
+    
+    print("score of",b," :" ,j)
+    if i>j:
+      print("*****",a,"*****  WON THE MATCH")
+    elif j>i: 
+      print("*****",b,"*****  WON THE MATCH") 
+    elif i==j:
+      print("....same IQ = same SCORE =MATCH DRAW....")
+
+  else: 
+    i=game(1,1)
+    i=f
+    print("score of",b," :" ,i)
+    print(a,"GOOD LUCK for your batting")
+    j=game1(1,1,i)
+    print("score of",a," :" ,j)
+    if i>j:
+      print("*****",b,"*****  WON THE MATCH")
+    elif j>i: 
+      print("*****",a,"*****  WON THE MATCH") 
+    elif i==j:
+      print("....same IQ = same SCORE =MATCH DRAW....") 
