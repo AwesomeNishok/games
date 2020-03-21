@@ -1,0 +1,159 @@
+import random
+import getpass
+def game(h,g,wickets,balls):
+ print("***note : the batting column will be invisible for safe gamepay***") 
+ while h<=wickets:
+  if g==1:
+      f=0 
+      g1=1
+  batselec=getpass.getpass(prompt="batsman select(0 to 6) :")
+  e=int(batselec)
+  if e>6:
+    print("****you have entered a value above 6 so it is going to be a favour for bowler****")
+    print("the current value changes to 1")
+    e=1
+  bowselec=int(input("bowler select(1 to 6) : "))
+  if bowselec>6:
+    print("no idea to make him out??")
+  if e==bowselec:
+    print("OUT")
+    h+=1
+    g1+=1
+    if g1>balls:
+      print("0 balls remaining")
+      return f
+    if h>wickets:
+     return f
+  else:
+    
+    f=f+e
+    print("score :",f)
+    g+=1
+    g1+=1
+    if g1>balls:
+      print("0 balls remaining")
+      return f
+def game1(h,g,i,wickets,balls):
+ i1=i
+ balls1=balls 
+ while h<=wickets:
+ 
+  print("need",i1,"runs in",balls1,"balls")  
+  if g==1:
+      f=0 
+      g1=1
+  batselec=getpass.getpass(prompt="batsman select(0 to 6) :")
+  e=int(batselec)
+  if e>6:
+    print("****you have entered a value above 6 so it is going to be a favour for bowler****")
+    print("the current value changes to 1")
+  bowselec=int(input("bowler select(1 to 6) : "))
+  if bowselec>6:
+    print("no idea to make him out??")
+  if e==bowselec:
+    balls1-=1
+    print("OUT")
+    h+=1
+    g1+=1
+    if g1>balls:
+      print("0 balls remaining")
+      return f
+    if h>wickets:
+     return f
+  else:
+    balls1-=1
+    i1=i1-e
+    f=f+e
+    print("score :",f)
+    if f>i:
+      h+=11
+      return f
+    g+=1   
+    g1+=1
+    if g1>balls:
+      print("0 balls remaining")
+      return f 
+
+a=input("enter player 1 name :")
+b=input("enter player 2 name :")
+mode=int(input("enter 1 for quick match or 2 for custom match"))
+if mode==2:
+  wickets=int(input("select wickets- 1 to 10"))
+  if wickets>10:
+    print("the max wicket could be 10")
+    wickets=10
+  overs=int(input("select overs-1 to 50"))
+  if overs>50:
+    print("the maximum overs could be 50")
+    overs=50
+  balls=overs*6
+else:
+  wickets=1
+  balls=500  
+print ("----->",a,"<-----" ,".VS.", "----->",b,"<-----")
+print(b,"press 1 for HEADS or 2 for TAILS")
+cointoss=int(input())
+d=random.randint(1,2)
+if cointoss==d:
+  print(b,"press 1 for BATTING or 2 for BOWLING")
+  p2c=int(input())
+  if p2c==1:
+    i=game(1,1,wickets,balls)
+    
+    print("score of",b," :" ,i)
+    print(a,"GOOD LUCK for your batting")
+    
+    j=game1(1,1,i,wickets,balls)
+    
+    print("score of",a," :" ,j)
+    if i>j:
+      print("*****",b,"*****  WON THE MATCH")
+    elif j>i: 
+      print("*****",a,"*****  WON THE MATCH") 
+    elif i==j:
+      print("....same IQ = same SCORE =MATCH DRAW....")  
+  else:
+    
+    i=game(1,1,wickets,balls)
+    print("score of",a," :" ,i)
+    print(b,"GOOD LUCK for your batting")
+  
+    j=game1(1,1,i,wickets,balls)
+    print("score of",b," :" ,j)
+    if i>j:
+      print("*****",a,"*****  WON THE MATCH")
+    elif j>i: 
+      print("*****",b,"*****  WON THE MATCH") 
+    elif i==j:
+      print("....same IQ = same SCORE =MATCH DRAW....") 
+else:
+  print(a,"press 1 for BATTING or 2 for BOWLING")  
+  p1c=int(input())
+  if p1c==1:
+    
+    i=game(1,1,wickets,balls)
+    print("score of",a," :" ,i)
+    print(b,"GOOD LUCK for your batting")
+    j=game1(1,1,i,wickets,balls)
+    
+    print("score of",b," :" ,j)
+    if i>j:
+      print("*****",a,"*****  WON THE MATCH")
+    elif j>i: 
+      print("*****",b,"*****  WON THE MATCH") 
+    elif i==j:
+      print("....same IQ = same SCORE =MATCH DRAW....")
+
+  else: 
+    i=game(1,1,wickets,balls)
+    i=f
+    print("score of",b," :" ,i)
+    print(a,"GOOD LUCK for your batting")
+    j=game1(1,1,i,wickets,balls)
+    print("score of",a," :" ,j)
+    if i>j:
+      print("*****",b,"*****  WON THE MATCH")
+    elif j>i: 
+      print("*****",a,"*****  WON THE MATCH") 
+    elif i==j:
+      print("....same IQ = same SCORE =MATCH DRAW....") 
